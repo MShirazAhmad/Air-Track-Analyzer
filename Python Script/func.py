@@ -2,7 +2,7 @@
     File name: func.py
     Authors: Muhammad Shiraz Ahmad and Sabieh Anwar
     Date created: 6/22/2019
-    Date last modified: 6/22/2019
+    Date last modified: 2/22/2020
     Python Version: 3.7.3
 '''
 
@@ -14,7 +14,10 @@ import numpy as np
 
 def import_from_physlogger(filename):
     data = np.loadtxt(filename)
-    data = np.single(data[:, 1:4])
+    if len(data[0][:])==4:
+        data = np.single(data[:, 1:4])
+    else:
+        data = np.single(data)
     return data
 
 
